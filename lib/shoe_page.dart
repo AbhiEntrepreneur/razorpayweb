@@ -20,28 +20,55 @@ class ShoePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(item.title),
       ),
-
-body: Column(
-  children: [
-    AspectRatio(aspectRatio: 4 / 3,
-    child: Image.network(item.urlImage,
-    fit: BoxFit.cover,
-    ),
-    
-
-
-
-    ),
-    SizedBox(height: 8,),
-
-    Text(item.title,
-style: TextStyle(fontSize: 32,fontWeight: FontWeight.w200,),)
-
-    
-  ],
-),
-
+      body: SafeArea(
+        child: LayoutBuilder(builder: (context, constraints) {
+          if (constraints.maxWidth < 768) {
+            return Column(
+              children: [
+                AspectRatio(
+                  aspectRatio: 4 / 3,
+                  child: Image.network(
+                    item.urlImage,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  item.title,
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w200,
+                  ),
+                )
+              ],
+            );
+          } else {
+            return Row(
+              children: [
+                AspectRatio(
+                  aspectRatio: 4 / 3,
+                  child: Image.network(
+                    item.urlImage,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Text(
+                  item.title,
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w200,
+                  ),
+                )
+              ],
+            );
+          }
+        }),
+      ),
     );
   }
 }
-  
