@@ -1,5 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element
-import 'package:futurek/shoe_page.dart';
+import 'package:futurek/shoe_page.dart';// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element
+
 import 'package:flutter/material.dart';
 import 'package:futurek/navbar.dart';
 import 'package:futurek/shoe_page2.dart';
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
       
       
       title: 'Nike Free Run',
-      subtitle: '\$99',
+      subtitle: '10',
     ),
     CardItem(
       urlImage:
