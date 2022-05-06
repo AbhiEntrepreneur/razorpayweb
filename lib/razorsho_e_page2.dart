@@ -1,34 +1,30 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:ffi';
 import 'dart:html';
 import 'dart:ui';
 import 'dart:developer';
 import 'package:futurek/homepage.dart';
-import 'package:readmore/readmore.dart';
 import 'package:razorpay_web/razorpay_web.dart';
 import 'package:futurek/razorpaypopup.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class ShoePage extends StatefulWidget {
-  final CardItem item;
+class ShoePage2 extends StatefulWidget {
+  final CardItem2 item;
 
-  const ShoePage({
+  const ShoePage2({
     Key? key,
     required this.item,
   }) : super(key: key);
 
   @override
-  State<ShoePage> createState() => _ShoePageState();
+  State<ShoePage2> createState() => _ShoePage2State();
 }
 
-class _ShoePageState extends State<ShoePage> {
+class _ShoePage2State extends State<ShoePage2> {
   TextEditingController textEditingController1 = TextEditingController();
   TextEditingController textEditingController2 = TextEditingController();
-
-  bool isReadMore = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +41,7 @@ class _ShoePageState extends State<ShoePage> {
                       AspectRatio(
                         aspectRatio: 4 / 3,
                         child: Image.network(
-                          widget.item.urlImage,
+                          widget.item.urlImage2,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -53,7 +49,7 @@ class _ShoePageState extends State<ShoePage> {
                         height: 8,
                       ),
                       Text(
-                        widget.item.title,
+                        widget.item.title2,
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w200,
@@ -62,37 +58,7 @@ class _ShoePageState extends State<ShoePage> {
                       SizedBox(
                         height: 8,
                       ),
-                      ReadMoreText(
-                        widget.item.description,
-                        trimLines: 2,
-                        trimMode: TrimMode.Line,
-                        trimCollapsedText: 'read more',
-                        trimExpandedText: 'read less',
-                        style: TextStyle(fontSize: 20),
-                        lessStyle: TextStyle(
-                            fontSize: 10,
-                            color: Colors.red,
-                            fontWeight: FontWeight.bold),
-                            moreStyle: TextStyle(
-                            fontSize: 10,
-                            color: Colors.amber,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 18,
-                      ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 40, vertical: 40),
-                              textStyle: TextStyle(fontSize: 20)),
-                          child: Text(isReadMore ? 'Read Less' : 'Read More'),
-                          onPressed: () =>
-                              setState(() => isReadMore = !isReadMore),
-                        ),
-                      ),
+                      Text(widget.item.description2),
                       SizedBox(
                         height: 18,
                       ),
@@ -106,8 +72,8 @@ class _ShoePageState extends State<ShoePage> {
                               TextStyle(fontSize: 15, color: Colors.black),
                           border: OutlineInputBorder(),
                           // prefixIcon: Icon(
-                          // Icons.email,
-                          // color: Colors.black12,
+                            // Icons.email,
+                            // color: Colors.black12,
                           // ),
                           fillColor: Colors.grey.shade100,
                           filled: true,
@@ -159,6 +125,8 @@ class _ShoePageState extends State<ShoePage> {
                         keyboardType: TextInputType.number,
                         maxLength: 10,
                       ),
+                      
+                      
                       Builder(
                           builder: (context) => Center(
                               child: ElevatedButton(
@@ -167,40 +135,50 @@ class _ShoePageState extends State<ShoePage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => Payments(
-                                                  title: widget.item.title,
+                                                  title: widget.item.title2,
                                                   urlImage:
-                                                      widget.item.urlImage,
+                                                      widget.item.urlImage2,
                                                   subtitle:
-                                                      widget.item.subtitle,
+                                                      widget.item.subtitle2,
                                                   textEditingController1:
                                                       textEditingController1
                                                           .text,
-                                                  textEditingController2:
-                                                      textEditingController2
-                                                          .text,
+                                                          textEditingController2: textEditingController2.text,
                                                 )),
                                       )))),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.grey.shade100),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('WINERBOX'),
-                            Column(
-                              children: [
-                                Text('useful links'),
-                                Text('home'),
-                                Text('privacy policy'),
-                                Text('t&c'),
-                                Text('about us')
-                              ],
-                            ),
-                            Column(
-                              children: [Text('contact us'), Text('email')],
-                            )
-                          ],
-                        ),
-                      )
+
+                                      Container(
+
+                decoration: BoxDecoration(color: Colors.grey.shade100),
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+children: [
+Text('WINERBOX'),
+
+Column(
+  children: [
+    Text('useful links'),
+    Text('home'),
+    Text('privacy policy'),
+    Text('t&c'),
+    Text('about us')
+    
+  ],
+),
+
+Column(
+  children: [
+    Text('contact us'),
+    Text('email')
+  ],
+)
+
+],
+                  
+                ),
+              )
+              
                     ],
                   );
                 } else {
@@ -209,7 +187,7 @@ class _ShoePageState extends State<ShoePage> {
                       AspectRatio(
                         aspectRatio: 4 / 3,
                         child: Image.network(
-                          widget.item.urlImage,
+                          widget.item.urlImage2,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -217,7 +195,7 @@ class _ShoePageState extends State<ShoePage> {
                         height: 8,
                       ),
                       Text(
-                        widget.item.title,
+                        widget.item.title2,
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w200,
@@ -226,7 +204,7 @@ class _ShoePageState extends State<ShoePage> {
                       SizedBox(
                         height: 8,
                       ),
-                      Text(widget.item.description),
+                      Text(widget.item.description2),
                       Builder(
                           builder: (context) => Center(
                               child: ElevatedButton(
@@ -235,40 +213,50 @@ class _ShoePageState extends State<ShoePage> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => Payments(
-                                                  title: widget.item.title,
+                                                  title: widget.item.title2,
                                                   urlImage:
-                                                      widget.item.urlImage,
+                                                      widget.item.urlImage2,
                                                   subtitle:
-                                                      widget.item.subtitle,
+                                                      widget.item.subtitle2,
                                                   textEditingController1:
                                                       textEditingController1
                                                           .text,
-                                                  textEditingController2:
-                                                      textEditingController2
-                                                          .text,
+                                                          textEditingController2: textEditingController2.text,
                                                 )),
                                       )))),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.grey.shade100),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('WINERBOX'),
-                            Column(
-                              children: [
-                                Text('useful links'),
-                                Text('home'),
-                                Text('privacy policy'),
-                                Text('t&c'),
-                                Text('about us')
-                              ],
-                            ),
-                            Column(
-                              children: [Text('contact us'), Text('email')],
-                            )
-                          ],
-                        ),
-                      )
+
+                                      Container(
+
+                decoration: BoxDecoration(color: Colors.grey.shade100),
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+children: [
+Text('WINERBOX'),
+
+Column(
+  children: [
+    Text('useful links'),
+    Text('home'),
+    Text('privacy policy'),
+    Text('t&c'),
+    Text('about us')
+    
+  ],
+),
+
+Column(
+  children: [
+    Text('contact us'),
+    Text('email')
+  ],
+)
+
+],
+                  
+                ),
+              )
+              
                     ],
                   );
                 }
